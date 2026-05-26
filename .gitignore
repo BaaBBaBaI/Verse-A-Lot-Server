@@ -1,32 +1,87 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+# ====================================================================
+# Compiled Objects, Libraries, and Executables
+# ====================================================================
 *.o
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
+*.a
+*.lib
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
 *.exe
 *.out
 *.app
+
+# ====================================================================
+# Drogon Specifics
+# ====================================================================
+# Drogon's command-line tool (dro_ctl) can generate view files from .csp
+# If you precompile views, ignore the generated C++ source/header files.
+# (Uncomment the lines below if you keep your .csp files and generated files in the same directory)
+# *.csp.cc
+# *.csp.h
+
+# If you use drogon_ctl to create models from a database, you might want to 
+# exclude them if you regenerate them every build, though many developers prefer to commit them.
+# models/
+
+# ====================================================================
+# CMake and Build Directories
+# ====================================================================
+# Ignore the entire build directory where CMake compiles the app
+/[Bb]uild/
+/cmake-build-*/
+
+# CMake generated files if you accidentally ran cmake in the root
+CMakeCache.txt
+CMakeFiles/
+CMakeCheckOutputs/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# ====================================================================
+# Environment & Configuration (CRITICAL FOR SERVERS)
+# ====================================================================
+# Never commit actual production configs with database passwords or API keys!
+config.json
+*.env
+*.env.*
+!config.yaml.example
+!config.json.example
+
+# ====================================================================
+# Database & Runtime Logs
+# ====================================================================
+*.log
+/logs/
+*.db
+*.sqlite
+
+# ====================================================================
+# IDEs and Editors
+# ====================================================================
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# CLion / JetBrains
+.idea/
+
+# Visual Studio
+.vs/
+*.sln
+*.vcxproj
+*.filters
+*.user
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+
+# OS generated files
+.DS_Store
+Thumbs.db
