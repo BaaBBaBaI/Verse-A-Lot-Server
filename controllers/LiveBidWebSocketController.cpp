@@ -2,8 +2,7 @@
 #include "../utils/WebSocketManager.h"
 
 void LiveBidWebSocketController::handleNewConnection(const drogon::HttpRequestPtr &req, const drogon::WebSocketConnectionPtr &conn) {
-    // Получение ID лота из URL пути
-    std::string path = req->path(); // e.g. "/api/lots/77a8c9ef-7689-4839-ac70-874f034cf92e/live"
+    std::string path = req->path();
     std::string prefix = "/api/lots/";
     std::string suffix = "/live";
     
